@@ -85,8 +85,10 @@
 
     var badges = [
       el("span", { className: "badge " + status, text: statusLabel(status) }),
-      el("span", { className: "badge", text: "Non-binding" }),
     ];
+    if (entity.kind === "school") {
+      badges.push(el("span", { className: "badge", text: "Non-binding" }));
+    }
     if (entity.residency === "out-of-state") {
       badges.push(el("span", { className: "badge", text: "Out-of-state" }));
     }
@@ -168,7 +170,7 @@
             : row.progress.done + " of " + row.progress.total + " items",
       }),
       el("ul", { className: "checklist" }, items),
-      entity.recs === "none"
+      entity.kind === "school" && entity.recs === "none"
         ? el("p", { className: "na", text: recsLine(entity) })
         : null,
       el("details", { className: "notes" }, [

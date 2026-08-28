@@ -8,7 +8,12 @@ Auburn is on the board because CoCo is filing that application herself. The row 
 
 ## Open it
 
-GitHub Pages (after it is enabled): https://gildernew-max.github.io/CoCo-Admissions-App/
+GitHub Pages: https://gildernew-max.github.io/CoCo-Admissions-App/
+
+If that URL is not live yet, enable it once: **Settings → Pages → Build and deployment → Source: GitHub Actions**, then re-run the Pages workflow. The token used to open this PR cannot flip that setting.
+
+Until Pages is on, this branch can be opened at:
+https://raw.githack.com/gildernew-max/CoCo-Admissions-App/cursor/coco-complete-file-board-a98a/index.html
 
 On a computer: open `index.html`, or from this folder run `python3 -m http.server 8080` and visit http://localhost:8080/
 
