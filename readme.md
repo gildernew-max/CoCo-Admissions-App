@@ -33,7 +33,7 @@ Nine schools, in the plan actually being filed:
 | FSU | Regular | Dec 1; materials Dec 8. No EA (Florida residents only) | None |
 | Boston University | RD | Some merit scholarships Dec 1; RD + CSS/FAFSA Jan 5 | Required |
 
-Household (not a school): FSA IDs for CoCo and one parent before Oct 1; FAFSA/CSS open Oct 1; SRAR / STARS by Nov 1 (rush only for FSU + Florida Grandparent Waiver); teacher recs in SCOIR when they have landed; May 1, 2027 national reply for all nine.
+Household (not a school): FSA IDs for CoCo and one parent before Oct 1; FAFSA/CSS open Oct 1; May 1, 2027 national reply for all nine.
 
 Fallback RD dates sit under **Dates and notes** when EA is the plan. Optional items (Scholar Programs, some BU merit) can be checked if filed or not pursuing.
 

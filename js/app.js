@@ -118,11 +118,9 @@
           }),
           el("span", { className: "item-text" }, [
             document.createTextNode(item.label),
-            item.hint
-              ? el("span", { className: "hint", text: item.hint })
-              : item.optional
-                ? el("span", { className: "hint", text: "Optional — check if filed or not pursuing" })
-                : null,
+            item.optional
+              ? el("span", { className: "optional", text: "Optional — check if filed or not pursuing" })
+              : null,
           ]),
         ]),
       ]);

@@ -26,8 +26,6 @@
       "Not a school. These items apply across all nine files.",
       "FSA IDs for CoCo and one parent are due before Oct 1.",
       "FAFSA and CSS open Oct 1. This board only tracks that they exist — it is not a FAFSA/CSS form.",
-      "SRAR / STARS is the self-reported transcript at srar.selfreportedtranscript.com. It is not confirmed filed. Rush only if FSU plus the Florida Grandparent Waiver; otherwise Nov 1 is fine.",
-      "Teacher recs in SCOIR is the Marist-side request. Check the row when SCOIR shows they landed. Per-school rec items stay only on UVA, SMU, TCU, Emory / Oxford, and Boston University.",
       "May 1, 2027 is the national reply date for all nine schools.",
     ],
     deadlines: [
@@ -42,12 +40,6 @@
         date: "2026-10-01",
         label: "FAFSA / CSS open",
         role: "open",
-      },
-      {
-        id: "srar",
-        date: "2026-11-01",
-        label: "SRAR / STARS",
-        role: "docs",
       },
       {
         id: "reply",
@@ -74,19 +66,6 @@
         label: "FAFSA / CSS are open (Oct 1)",
         action: "Note that FAFSA and CSS are open",
         deadlineId: "aid-open",
-      },
-      {
-        id: "srar",
-        label: "SRAR / STARS self-reported transcript",
-        action: "File SRAR, or confirm it is already filed",
-        deadlineId: "srar",
-        hint: "srar.selfreportedtranscript.com · Nov 1. Rush only for FSU + Florida Grandparent Waiver.",
-      },
-      {
-        id: "scoir-recs",
-        label: "Teacher recs in SCOIR",
-        action: "Confirm teacher recs landed in SCOIR",
-        hint: "Check when SCOIR shows they landed.",
       },
       {
         id: "reply",
