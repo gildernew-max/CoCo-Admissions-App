@@ -111,6 +111,13 @@ const buSkipMerit = checked(bu, ["merit"]);
 assert.strictEqual(logic.getNextDeadline(bu, buSkipMerit, TODAY).date, "2027-01-05");
 
 const household = data.household;
+assert.strictEqual(household.items.length, 6);
+assert.ok(household.items.some((item) => item.id === "srar"));
+assert.ok(household.items.some((item) => item.id === "scoir-recs"));
+assert.ok(
+  !household.items.find((item) => item.id === "scoir-recs").deadlineId,
+  "SCOIR recs are a check, not a dated nag"
+);
 assert.strictEqual(
   logic.getNextDeadline(household, unchecked(household), TODAY).date,
   "2026-09-30"
@@ -119,6 +126,34 @@ assert.strictEqual(
   logic.getNextAction(household, unchecked(household), TODAY).label,
   "Create CoCo’s FSA ID"
 );
+const householdAfterAid = checked(household, [
+  "fsa-coco",
+  "fsa-parent",
+  "aid-open",
+]);
+assert.strictEqual(
+  logic.getNextDeadline(household, householdAfterAid, TODAY).date,
+  "2026-11-01"
+);
+assert.strictEqual(
+  logic.getNextAction(household, householdAfterAid, TODAY).label,
+  "File SRAR, or confirm it is already filed"
+);
+
+const publicsWithoutRecs = ["auburn", "gatech", "uga", "fsu"];
+publicsWithoutRecs.forEach((id) => {
+  assert.ok(
+    !school(id).items.some((item) => item.id === "recs"),
+    id + " still omits per-school recs"
+  );
+});
+const privatesWithRecs = ["smu", "tcu", "uva", "emory", "bu"];
+privatesWithRecs.forEach((id) => {
+  assert.ok(
+    school(id).items.some((item) => item.id === "recs"),
+    id + " keeps per-school recs"
+  );
+});
 
 const state = logic.defaultState(data);
 const summary = logic.boardSummary(data, state, TODAY);

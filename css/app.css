@@ -275,7 +275,7 @@ h1 {
   flex: 1;
 }
 
-.checklist .item-text .optional {
+.checklist .item-text .hint {
   display: block;
   color: var(--muted);
   font-size: 0.8rem;
