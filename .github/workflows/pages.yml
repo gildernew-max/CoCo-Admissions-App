@@ -1,0 +1,64 @@
+name: Pages
+
+on:
+  push:
+    branches:
+      - main
+      - cursor/coco-complete-file-board-a98a
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node tests/logic.test.js
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check whether Pages is enabled
+        id: check
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/${{ github.repository }}/pages"
+      - name: Assemble site
+        if: steps.check.outcome == 'success'
+        run: |
+          mkdir _site
+          cp index.html favicon.svg manifest.webmanifest .nojekyll _site/
+          cp -r css js _site/
+      - uses: actions/configure-pages@v5
+        if: steps.check.outcome == 'success'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.check.outcome == 'success'
+        with:
+          path: _site
+      - id: deployment
+        if: steps.check.outcome == 'success'
+        uses: actions/deploy-pages@v4
+      - name: Pages not enabled yet
+        if: steps.check.outcome != 'success'
+        run: |
+          echo "Enable GitHub Pages: Settings → Pages → Build and deployment → Source: GitHub Actions"
+          echo "Then re-run this workflow. Site URL: https://gildernew-max.github.io/CoCo-Admissions-App/"
