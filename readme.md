@@ -1,10 +1,10 @@
-# CoCo complete-file board
+# House complete-file board
 
-Phone-friendly tracker for Gabrielle “CoCo” Grace Gildernew (Marist School, Class of 2027, SAT 1470). Dave and CoCo use it to see what is still open on nine non-binding files. No Early Decision.
+Phone-friendly house tracker for eight non-binding college files. Not a student-facing app. No Early Decision. SMU is not on this list; TCU was named over SMU.
 
 This is a complete-file board: application, fee, transcript, SAT/test, recommendations where required, and portal. It is not a Common App, essay workspace, CSS wizard, or net-cost tool. It does not submit anything.
 
-Auburn is on the board because CoCo is filing that application herself. The row is tracking only.
+Auburn is tracked only. CoCo files that application herself. This board never submits.
 
 ## Open it
 
@@ -19,27 +19,26 @@ On a computer: open `index.html`, or from this folder run `python3 -m http.serve
 
 ## What is seeded
 
-Nine schools, in the plan actually being filed:
+Eight schools:
 
-| School | Plan | Next headline date | Recs |
+| School | Plan | Headline date | Recs |
 | --- | --- | --- | --- |
-| Auburn | EA Round 1 | Sep 15, 2026 complete file | None |
+| Auburn | EA Round 1 | Sep 15, 2026 complete file. Official SAT to 1005 is unknown (look-only; do not send). Dec 1 last EA/merit is in detail. | None |
 | Georgia Tech | EA1 (Georgia) | Oct 15; docs Oct 30; self-reported SAT Nov 16 | None |
-| UGA | EA | Oct 15; materials Oct 29 | None |
-| SMU | EA | File Oct 31 (Nov 1 is Sunday); auto merit with Nov 1 | With the file |
-| TCU | EA | Nov 1 | With the file |
-| UVA | EA, out-of-state | Nov 1; teacher/counselor forms Nov 8 | Required |
-| Emory / Oxford | RD | Scholar Programs Nov 15 if she wants that pool; RD Jan 1; CSS/FAFSA/IDOC Feb 10 | Required |
 | FSU | Regular | Dec 1; materials Dec 8. No EA (Florida residents only) | None |
-| Boston University | RD | Some merit scholarships Dec 1; RD + CSS/FAFSA Jan 5 | Required |
+| UGA | EA | Oct 15; materials Oct 29. SAT required (self-report) | None |
+| Carnegie Mellon | RD | Jan 4, 2027 | Required |
+| Rice | RD | Jan 4, 2027 | Required |
+| Case Western | EA | Nov 1 | Required |
+| TCU | EA | File Oct 31 (Nov 1 official EA in detail) | With the file |
 
-Household (not a school): FSA IDs for CoCo and one parent before Oct 1; FAFSA/CSS open Oct 1; May 1, 2027 national reply for all nine.
+No SMU, UVA, Emory, or Boston University. No CSS rows on TCU, Case Western, Carnegie Mellon, or Rice. No SRAR row.
 
-Fallback RD dates sit under **Dates and notes** when EA is the plan. Optional items (Scholar Programs, some BU merit) can be checked if filed or not pursuing.
+Household (not a school): FSA IDs for CoCo and one parent before Oct 1; FAFSA/CSS open Oct 1; May 1, 2027 national reply for all eight.
 
 ## Checks and backup
 
-Checklist state is stored in the browser (`localStorage`). Export JSON or copy JSON, then import on the other phone. Reset checks only clears this device.
+Checklist state is stored in the browser (`localStorage`). Export JSON or copy JSON, then import on another phone. Reset checks only clears this device.
 
 ## Tests
 

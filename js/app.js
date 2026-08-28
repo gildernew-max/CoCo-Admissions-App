@@ -37,7 +37,6 @@
   }
 
   function renderHeader(summary, today) {
-    var student = data.student;
     var chips = [
       el("span", { className: "chip", text: summary.openSchools + " of " + summary.schoolCount + " school files open" }),
     ];
@@ -57,14 +56,10 @@
 
     return el("header", { className: "site-header" }, [
       el("p", { className: "kicker", text: "Complete-file board" }),
-      el("h1", { text: student.nickname + " Gildernew" }),
-      el("p", {
-        className: "meta",
-        text: student.name + " · " + student.school + " · Class of " + student.classYear + " · SAT " + student.sat,
-      }),
+      el("h1", { text: "House" }),
       el("p", {
         className: "policy",
-        text: "Nine schools · non-binding only · no Early Decision",
+        text: "Eight schools · non-binding only · no Early Decision",
       }),
       el("div", { className: "summary" }, chips),
       el("section", { className: "next-up", "aria-label": "Next dates" }, [
@@ -118,9 +113,11 @@
           }),
           el("span", { className: "item-text" }, [
             document.createTextNode(item.label),
-            item.optional
-              ? el("span", { className: "optional", text: "Optional — check if filed or not pursuing" })
-              : null,
+            item.hint
+              ? el("span", { className: "optional", text: item.hint })
+              : item.optional
+                ? el("span", { className: "optional", text: "Optional — check if filed or not pursuing" })
+                : null,
           ]),
         ]),
       ]);
@@ -184,7 +181,7 @@
     return el("section", { className: "tools", id: "backup" }, [
       el("h2", { text: "This phone and other devices" }),
       el("p", {
-        text: "Checks are saved in this browser. Export JSON to move the board to Dave or CoCo’s other phone.",
+        text: "Checks are saved in this browser. Export JSON to move the board to another phone.",
       }),
       el("div", { className: "actions" }, [
         el("button", { className: "primary", type: "button", text: "Export JSON", onClick: exportJson }),
@@ -257,7 +254,7 @@
     var url = URL.createObjectURL(blob);
     var link = el("a", {
       href: url,
-      download: "coco-complete-file-board.json",
+      download: "house-complete-file-board.json",
     });
     document.body.appendChild(link);
     link.click();

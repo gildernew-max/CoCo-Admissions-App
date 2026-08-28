@@ -1,6 +1,6 @@
 {
-  "name": "CoCo complete-file board",
-  "short_name": "CoCo board",
+  "name": "House complete-file board",
+  "short_name": "House board",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f4f1ea",

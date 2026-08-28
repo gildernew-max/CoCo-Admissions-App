@@ -99,15 +99,19 @@
     });
   }
 
+  function isLookOnly(item) {
+    return item.group === "look-only";
+  }
+
   function requiredItems(entity) {
     return entity.items.filter(function (item) {
-      return !item.optional;
+      return !item.optional && !isLookOnly(item);
     });
   }
 
   function fileItems(entity) {
     return entity.items.filter(function (item) {
-      return !item.optional && item.group !== "aid";
+      return !item.optional && item.group !== "aid" && !isLookOnly(item);
     });
   }
 
@@ -139,6 +143,7 @@
 
   function isFullyComplete(entity, checks) {
     return entity.items.every(function (item) {
+      if (isLookOnly(item)) return true;
       return checks[item.id] === true;
     });
   }
@@ -173,7 +178,7 @@
     if (nextDeadline) {
       var linkedOpen = itemsForDeadline(entity, nextDeadline.id).filter(
         function (item) {
-          return isItemOpen(item, checks);
+          return isItemOpen(item, checks) && !isLookOnly(item);
         }
       );
       if (linkedOpen.length) {
@@ -185,7 +190,7 @@
       }
     }
     var firstOpen = entity.items.filter(function (item) {
-      return isItemOpen(item, checks);
+      return isItemOpen(item, checks) && !isLookOnly(item);
     })[0];
     if (!firstOpen) return null;
     return {
@@ -298,7 +303,7 @@
       app: data.appId,
       version: data.version,
       exportedAt: exportedAt || new Date().toISOString(),
-      student: data.student.nickname,
+      audience: data.audience || "house",
       checks: mergeState(data, state).checks,
     };
   }
@@ -309,7 +314,7 @@
       throw new Error("Not a JSON object.");
     }
     if (parsed.app && parsed.app !== "coco-complete-file-board") {
-      throw new Error("This file is not a CoCo complete-file board export.");
+      throw new Error("This file is not a complete-file board export.");
     }
     if (!parsed.checks || typeof parsed.checks !== "object") {
       throw new Error("Export is missing checklist data.");
