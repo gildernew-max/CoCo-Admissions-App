@@ -145,6 +145,16 @@ assert.strictEqual(
 );
 assert.ok(rice.items.find((item) => item.id === "recs").hint.includes("3–10"));
 
+assert.strictEqual(tcu.houseLabel, "Scripts and art");
+assert.strictEqual(cmu.houseLabel, "Animation and screenwriting");
+assert.ok(!/Carnegie Mellon/i.test(cmu.houseLabel));
+assert.strictEqual(rice.houseLabel, "Screenwriting and graphic novels");
+assert.strictEqual(cwr.houseLabel, "Writing desk");
+assert.ok(!/film|production|studio/i.test(cwr.houseLabel));
+["auburn", "gatech", "uga", "fsu"].forEach((id) => {
+  assert.ok(!school(id).houseLabel, id + " stays unlabeled");
+});
+
 const publicsWithoutRecs = ["auburn", "gatech", "uga", "fsu"];
 publicsWithoutRecs.forEach((id) => {
   assert.ok(
