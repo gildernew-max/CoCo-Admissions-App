@@ -138,6 +138,9 @@
         el("div", {}, [
           el("h2", { text: entity.name }),
           el("p", { className: "plan", text: entity.plan }),
+          entity.houseLabel
+            ? el("p", { className: "house-label", text: entity.houseLabel })
+            : null,
         ]),
         el("div", { className: "badges" }, badges),
       ]),

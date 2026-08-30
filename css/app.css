@@ -170,6 +170,12 @@ h1 {
   font-size: 0.88rem;
 }
 
+.house-label {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .badges {
   display: flex;
   flex-wrap: wrap;
